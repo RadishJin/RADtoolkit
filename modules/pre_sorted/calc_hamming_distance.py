@@ -12,4 +12,3 @@ def calc_hamming_distance(str1: str, str2: str) -> int:
 # test2 = "CATCGTAATGACGGCCT"
 # print(calc_hamming_distance(test1, test2))  # 출력: 7
 
-
