@@ -15,7 +15,7 @@ def load_structure(id: str) -> struc.AtomArray:
 
 
 # 백본 아톰만 남기는 파서
-def bb_parser(atoms : struc.AtomArray) -> struc.AtomArray:
+def parse_bb(atoms : struc.AtomArray) -> struc.AtomArray:
 
     # Biotite.structure 이용 residue와 관련된 원자만 남기기 (비표준 아미노산도 포함)
     residue_mask = struc.filter_amino_acids(atoms)
@@ -30,7 +30,7 @@ def bb_parser(atoms : struc.AtomArray) -> struc.AtomArray:
 
 
 # 알파카본만 남기는 파서
-def ca_parser(atoms : struc.AtomArray) -> struc.AtomArray:
+def parse_ca(atoms : struc.AtomArray) -> struc.AtomArray:
 
     # Residue Atom Boolean Masking
     residue_mask = struc.filter_amino_acids(atoms)

@@ -1,5 +1,8 @@
 # 문자열의 해밍 디스턴스 구하는 함수
 def calc_hamming_distance(str1: str, str2: str) -> int:
+    """
+    문자열의 해밍 디스턴스 구하는 함수
+    """
 
     if len(str1) != len(str2):
         raise ValueError("두 문자열의 길이가 같아야 합니다.")

@@ -2,7 +2,10 @@ import numpy as np
 
 # MSA 각 성분 빈도를 ndarray로 반환해주는 함수
 def calc_profile(matrix: np.ndarray) -> np.ndarray:
-
+    """
+    MSA 각 성분 빈도를 ndarray로 반환해주는 함수
+    """
+    
     # base mapping
     base = np.array(['A', 'C', 'G', 'T'])
 

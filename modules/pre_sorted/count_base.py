@@ -2,6 +2,9 @@ from collections import Counter
 
 # base sequence(str type)의 base 개수를 세는 함수
 def count_base(seq: str) -> dict[str, int]:
+    """
+    base sequence(str type)의 base 개수를 세는 함수
+    """
 
     # 대문자로 정규화
     seq = seq.upper()

@@ -2,6 +2,9 @@ import io
 
 # Rosalind 전용 fasta parser
 def parse_rosalind_fasta(raw: str) -> dict:
+    """
+    Rosalind 전용 fasta parser
+    """
 
     seq = {}
     current_id = ""

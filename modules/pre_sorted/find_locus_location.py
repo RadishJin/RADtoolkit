@@ -2,6 +2,9 @@ import re
 
 # base sequence에서 원하는 패턴을 위치로 찾아내는 함수
 def find_locus_location(pattern: str, sequence: str) -> list[int]:
+    """
+    base sequence에서 원하는 패턴을 위치로 찾아내는 함수
+    """
 
     # 예외
     if not pattern or not sequence:
