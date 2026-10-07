@@ -41,6 +41,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/urllib3-2.8.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-8_kmp_llvm.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/backports.zstd-1.7.0-py312h1a36842_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/biopython-1.88-py312ha053593_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/biotite-1.7.1-py312he05aa71_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/biotraj-1.2.2-py312h6510ced_2.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/brotli-python-1.2.0-py312ha52686f_4.conda
@@ -427,6 +428,18 @@ packages:
   run_exports: {}
   size: 238779
   timestamp: 1788491297224
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/biopython-1.88-py312ha053593_1.conda
+  sha256: 7212e71b1c9374532671d40902cda1ae46d7637531a4cf4f2fd3c1da39412ad4
+  md5: 5f0252135cca1600e5a950fa2f70dee7
+  depends:
+  - __osx >=11.0
+  - numpy
+  - python >=3.12,<3.13.0a0
+  - python_abi 3.12.* *_cp312
+  license: LicenseRef-Biopython
+  run_exports: {}
+  size: 3226390
+  timestamp: 1789126305110
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/biotite-1.7.1-py312he05aa71_0.conda
   sha256: a06414d049446ceff83dc9e462b7927e1cb94da5fd851821f10053ba65d119de
   md5: 5e3b51c557fec91b69b4e7420a513142
