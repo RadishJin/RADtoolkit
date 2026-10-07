@@ -1,5 +1,5 @@
 # 여러 서열에 공통으로 존재하는 가장 긴 모티프(LCSM) 중 하나를 반환한다.
-def find_only_motif(seqlist : list) -> str:
+def find_only_common_motif(seqlist : list) -> str:
     """
     여러 서열에 공통으로 존재하는 가장 긴 모티프(LCSM) 중 하나를 반환한다.
     """

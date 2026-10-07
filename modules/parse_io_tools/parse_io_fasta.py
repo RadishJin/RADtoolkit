@@ -1,9 +1,6 @@
 import io
-import re
-
-
-# Module-Level variable
-ACC_REGEX = re.compile(r'[A-Z][0-9][A-Z0-9]{3,7}(?:-[0-9]+)?')
+import time
+import requests
 
 
 # Rosalind 전용 fasta parser
@@ -53,15 +50,13 @@ def parse_uniprot_fasta(raw: str) -> dict[str, str]:
             continue
 
         if line.startswith(">"):
-            match = ACC_REGEX.search(line)
+            parts = line.split("|")
 
-            if match:
-                current_id = match.group()
-
+            if len(parts) >= 2:
+                current_id = parts[1].strip()
+                
             else:
-                current_id = f'unknown_{un}'
-                un += 1
-
+                current_id = line[1:].split()[0].strip()
             seq[current_id] = []
 
         else:
@@ -71,6 +66,32 @@ def parse_uniprot_fasta(raw: str) -> dict[str, str]:
     return {seq_id: "".join(chunks) for seq_id, chunks in seq.items()}
 
 
+# UniProt FASTA IO
+def io_uniprot_fasta(id_list : list[str]) -> tuple[str, list[str]]:
+    """
+    UniProt Accession ID를 리스트로 입력하면
+    해당 ID의 FASTA 전체를 읽어옴
 
+    튜플 ( 읽은 파스타, 누락 id 리스트 ) 로 출력함
+    """
+    headers = {"User-Agent" : "Mozilla/5.0"}
 
+    if not id_list:
+        return ("", [])
 
+    fasta_list = []
+    omit_list = []
+    for acc_id in id_list:
+        url = f"https://www.uniprot.org/uniprot/{acc_id}.fasta"
+        response = requests.get(url, headers = headers, timeout= 10)
+
+        if response.status_code == 200 and response.text.startswith('>'):
+            fasta_list.append(response.text.strip())
+
+        else:
+            print(f"[Warning] Fasta Data Omitted : {acc_id}")
+            omit_list.append(acc_id)
+
+        time.sleep(0.05)
+
+    return ("\n\n".join(fasta_list), omit_list)
